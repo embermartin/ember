@@ -1,1 +1,383 @@
-<h1>Ember</h1>
+<html>
+	<head>
+		<title>Ember Digital</title>
+		<meta name="viewport" content="width=700" />
+		<link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
+		<style>
+			body{
+				margin: 0;
+				font-family: Georgia;
+				overflow-x: hidden;
+
+				font-size: 28px;
+				color: #444444;
+				line-height: 38px;
+			}
+
+			html{
+				overflow-x: hidden;
+			}
+
+			h1,h2,h3{
+				font-family: 'Raleway';
+				font-weight: 800;
+				color: #262626;
+				text-align: center;
+			}
+
+			h1{
+				font-size: 72px;
+				line-height: 86px;
+				margin: 0 0 60px 0;
+			}
+			
+			#splash{
+				height: 1131px;
+			}
+
+			#hero svg{
+				height: 140vh;
+				margin-left: -950px;
+				position: relative;
+				left: 50%;
+			}
+
+			ellipse:hover{
+				background-color: red;
+				fill: yellow;
+			}
+
+			section{
+				display: block;
+				padding: 120px 30px;
+				margin: auto;
+				text-align: center;
+			}
+
+			.small{
+				max-width: 700px;
+				margin: auto;
+				display: block;
+			}
+
+			#hero{
+				height: 125vh;
+				z-index: 9;
+				padding: 0;
+				box-sizing: border-box;
+				color: white;
+				pointer-events: none;
+				text-align: left;
+				background-image: -webkit-linear-gradient(#F37335 2%, #FDC830 100%);
+				background-image: -o-linear-gradient(#F37335 2%, #FDC830 100%);
+				background-image: linear-gradient(#F37335 2%, #FDC830 100%);
+			}
+
+			#hero h1, #hero h2{
+				color: white;
+				z-index: 2;
+				position: relative;
+				padding: 0 30px;
+			}
+
+			#hero *::selection{
+				background: #BA1BFB;
+			}
+
+			#hero *{
+				pointer-events: all;
+			}
+
+			#hero>h1{
+				text-shadow: 0 2px 4px rgba(0,0,0,0.04);
+				margin-bottom: 0;
+				margin-top: -105vh;
+			}
+
+			#hero>h2{
+				font-size: 32px;
+				font-weight: 400;
+				margin: 10px 0;
+				text-shadow: 0 2px 4px rgba(0,0,0,0.04);
+				font-family: Georgia;
+				font-weight: 400;
+			}
+
+			#top_purple:hover{
+				fill: #64F56F;
+				transition: fill 0.1s ease;
+			}
+
+			#top_red:hover{
+				fill: #FFD200;
+				transition: fill 0.1s ease;
+			}
+
+			#pop{
+				background-image: -webkit-linear-gradient(left, #7EF4FF 0%, #48DFFF 100%);
+				background-image: -o-linear-gradient(left, #7EF4FF 0%, #48DFFF 100%);
+				background-image: linear-gradient(to right, #7EF4FF 0%, #48DFFF 100%);
+				padding: 100px 220px;
+				transform: skewY(1deg);  /* SKEW */
+				margin: 0 -200px;
+			}
+
+			#pop>div{
+				transform: skewY(-1deg);  /* UNSKEW */
+			}
+
+			#pop svg{
+				width: 200px;
+				margin-top: -180px;
+			}
+
+			ul{
+				list-style-position: inside;
+				padding: 0;
+			}
+
+			p{
+				margin: 50px 0;
+			}
+
+			#contact{
+				background-image: -webkit-linear-gradient(left, #C07EFF 0%, #FF48DB 100%);
+				background-image: -o-linear-gradient(left, #C07EFF 0%, #FF48DB 100%);
+				background-image: linear-gradient(to right, #C07EFF 0%, #FF48DB 100%);
+				transform: skewY(-4deg);  /* SKEW */
+			}
+
+			#contact form, #contact svg{
+				display: block;
+				float: left;
+			}
+
+			#contact form{
+				text-align: right;
+				margin-top: 100px;
+				padding: 0 50px;
+			}
+
+			#contact h1{
+				color: #FFED00;
+				margin-bottom: 0;
+				transform: skewY(4deg);  /* SKEW */
+			}
+
+			#contact input, #contact textarea{
+				border: 3px solid white;
+				background: transparent;
+				width: 100%;
+				max-width: 100%;
+				margin-bottom: 10px;
+				padding: 20px;
+				font-size: 21px;
+				color: white;
+				font-weight: 600;
+			}
+
+			#contact input:focus, #contact textarea:focus{
+				outline: 0;
+				border-color: #6BFFF0;
+			}
+
+			#contact button{
+				font-size: 26px;
+				padding: 15px 30px;
+				background-color: white;
+				border: 0;
+				color: #FB4BDE;
+				font-weight: 700;
+				transition: background-color 0.1s ease;
+			}
+
+			#contact button:hover{
+				background-color: #6BFFF0;
+				cursor: pointer;
+			}
+
+			#message{
+				min-height: 250px;
+			}
+
+			#contact input::placeholder, #contact textarea::placeholder{
+				color: white;
+				font-weight: 400;
+			}
+
+			#contact>div{
+				transform: skewY(4deg);  /* SKEW */
+				width: 1800px;
+				margin-left: 50%;
+				position: relative;
+				left: -990px;
+			}
+
+			#contact div::after{
+				content: " ";
+				width: 100%;
+				clear: both;
+				display: block;
+			}
+
+			#credits{
+				font-size: 24px;
+			}
+
+			.logo{
+				color: #FFC400;
+				font-family: 'Raleway';
+				font-weight: 800;
+			}
+
+		</style>
+	</head>
+	<body>
+	
+
+		<section id="hero">
+			<svg width="1900px" height="1131px" viewBox="0 0 1900 1131" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			    <defs>
+			        <linearGradient x1="50%" y1="1.8753986%" x2="50%" y2="100%" id="linearGradient-1">
+			            <stop stop-color="#F37335" offset="0%"></stop>
+			            <stop stop-color="#FDC830" offset="100%"></stop>
+			        </linearGradient>
+			        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+			            <stop stop-color="#AE28E4" offset="0%"></stop>
+			            <stop stop-color="#CB74FF" offset="100%"></stop>
+			        </linearGradient>
+			        <linearGradient x1="-2.48949813e-15%" y1="50%" x2="95.0833068%" y2="50%" id="linearGradient-3">
+			            <stop stop-color="#59FFD7" offset="0%"></stop>
+			            <stop stop-color="#D4FF30" offset="100%"></stop>
+			        </linearGradient>
+			        <linearGradient x1="11.7030201%" y1="20.8916084%" x2="79.9391779%" y2="87.8824301%" id="linearGradient-4">
+			            <stop stop-color="#FF3333" offset="0%"></stop>
+			            <stop stop-color="#D00606" offset="100%"></stop>
+			        </linearGradient>
+			        <linearGradient x1="11.7030201%" y1="20.8916084%" x2="79.9391779%" y2="87.8824301%" id="linearGradient-5">
+			            <stop stop-color="#648DF5" offset="0%"></stop>
+			            <stop stop-color="#BC4CF1" offset="100%"></stop>
+			        </linearGradient>
+			    </defs>
+			    <g id="`" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+			        <g id="Artboard-3">
+			            <polygon id="Rectangle-2" fill="url(#linearGradient-2)" transform="translate(1593.000000, 666.500000) rotate(27.000000) translate(-1593.000000, -666.500000) " points="1245 299 1941 415.199024 1888.00811 1034 1371.17638 984.890923"></polygon>
+			            <polygon id="Rectangle-3" fill="url(#linearGradient-3)" points="137.028564 317 453.786803 425.590493 624 675 85 583.297627"></polygon>
+			            <polygon id="top_red" fill="#FF006C" points="311 -60.471663 1046.59202 -166 1217 83.47895 657.365556 128"></polygon>
+			            <ellipse id="Oval" fill="url(#linearGradient-4)" cx="792.5" cy="821.5" rx="74.5" ry="71.5"></ellipse>
+			            <ellipse id="Oval" fill="url(#linearGradient-5)" cx="355.5" cy="822" rx="30.5" ry="28"></ellipse>
+			            <path d="M329.316126,867.258702 C352.112198,867.258702 337.532499,846.243908 319.562892,850.028785 C312.36826,851.544166 312.512678,867.387728 312.332195,869.889626 C311.28232,884.443276 313.816932,886.84585 327.186775,891.787176 C329.561752,892.664938 332.080702,893.257338 334.610133,893.422775 C338.500297,893.67721 342.704146,894.530263 346.299563,893.037241 C350.616823,891.244468 354.012573,887.618616 357.061073,884.099863 C360.453112,880.184575 363.726258,875.892683 365.388759,871.003391 C372.499491,850.091255 315.508627,823.539733 301.38554,832.954001 C287.16914,842.43047 283.787841,866.595288 282.436202,878.372069 C276.934433,926.308793 285.85538,942.827165 333.564257,953.235059 C341.137354,954.887163 348.961434,955.078353 356.660023,956" id="Path-3" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path>
+			            <polygon id="top_purple" fill="#648DF5" transform="translate(759.500000, -19.500000) rotate(-28.000000) translate(-759.500000, 19.500000) " points="648.172384 -159 886.163856 -129.607065 986 120 533 -14.9243114"></polygon>
+			            <circle id="Oval-2" fill="#FFFFFF" cx="1706.5" cy="279.5" r="3.5"></circle>
+			            <path d="M335.5,260.5 L396.5,292.5" id="Line" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path>
+			            <path d="M936,685 C953.22208,714.904594 943.753278,711.818112 964,690.728924" id="Path-5" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" transform="translate(950.000000, 696.000000) rotate(-8.000000) translate(-950.000000, -696.000000) "></path>
+			            <path d="M950.726681,574 C979.770726,606.078277 931.137596,622.006589 933.055481,640.403232 C934.037775,649.825535 944.636731,645.288774 949.78457,651.64445 C955.306026,658.461407 943.926454,674.845609 943.926454,681" id="Path-4" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" transform="translate(946.500000, 627.500000) rotate(-6.000000) translate(-946.500000, -627.500000) "></path>
+			            <path d="M1593,812 C1610.59913,790.276712 1615.31202,786.685951 1640.5612,764.423078 C1652.71328,753.708263 1679.68142,719.571973 1684.62956,735.903225 C1686.77411,742.981258 1705.5646,794.855092 1711.80041,791.024076 C1729.31184,780.265802 1765.0369,760.006848 1790.37947,744.865598 C1802.5934,737.568222 1820.22124,727.884451 1829.00828,725.373866 C1837.17304,723.04108 1866.14929,756.589697 1874.75223,758.296375 C1879.10931,759.160745 1927.96516,695.758232 1935,688" id="Path-6" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path>
+			            <path d="M1322,910.5 L1362.06804,910.5" id="Line-2" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"></path>
+			        </g>
+			    </g>
+			</svg>
+			<h1>This is Ember</h1>
+			<h2>We make memorable websites that sell.</h2>
+		</section>
+
+		<section id="about" class="small">
+			<h1>Who are we?</h1>
+			<p>We are a Perth based company who has been designing and building great eCommerce websites since '08.</p>
+
+			<p>We do everything from scratch, in-house, and we take the time to get every detail right.</p>  
+			<p>We're really good at what we do.</p>
+		</section>
+
+		<section id="pop">
+			<svg id="heart" width="163px" height="151px" viewBox="0 0 163 151" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			    <title>Heart</title>
+			    <desc>Created with Sketch.</desc>
+			    <defs></defs>
+			    <g id="Artboard-Copy-6" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-869.000000, -1821.000000)">
+			        <path d="M1018.51333,1834.89068 C1010.01413,1826.01913 998.24799,1821.00077 985.946806,1821.00077 C973.645621,1821.00077 961.879484,1826.01913 953.38028,1834.89068 L950.498545,1837.85263 L947.62263,1834.89068 C929.633613,1816.36977 900.472776,1816.36977 882.48958,1834.89068 C864.506384,1853.41159 864.500563,1883.44346 882.48958,1901.96437 L885.365494,1904.92632 L950.498545,1972 L1015.6316,1904.92632 L1018.50751,1901.96437 C1036.49653,1883.44346 1036.49653,1853.41159 1018.51333,1834.89068 Z" id="Heart" fill="#FF3176" fill-rule="nonzero" transform="translate(950.500000, 1896.500000) rotate(-360.000000) translate(-950.500000, -1896.500000) "></path>
+			    </g>
+			</svg>
+			<div>
+				<h1>Things we like</h1>
+				<ul>
+					<li>Face to face meetings</li>
+					<li>Data-driven decisions</li>
+					<li>Listening to lots of people</li>
+					<li>Thinking about real customers</li>
+					<li>Creating goals</li>
+					<li>Finding new approaches</li>
+					<li>Coffee</li>
+				</ul>
+			</div>
+		</section>
+
+		<section id="tech" class="small">
+			<h1>We use the latest and greatest tech</h1>
+			<p>All of our websites are powered by Craft Commerce. It's an extremely powerful content management system which lets us design great, modern websites from scratch.</p>
+
+			<p>Craft lets you manage all of your products, orders, customers and page content in house. We can add new features in a fraction of the time and cost it usually takes.</p>
+
+			<p>If you've been using Magento, WooCommerce or Shopify in the past, then you've suffered long enough. Learn more about Craft.</p>
+		</section>
+
+		<section id="contact">
+			<h1>Get in touch</h1>
+			<div>
+				<svg id="swirl" width="583px" height="376px" viewBox="0 0 583 376" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				    <title>Artboard</title>
+				    <desc>Created with Sketch.</desc>
+				    <defs></defs>
+				    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				        <g id="Artboard" fill="#FFFFFF">
+				            <path d="M2,4.64829216 L4.56665418,3 C7.95733845,7.78324859 11.3530032,12.6548004 16,19.3807492 L13.4130212,21 C8.77216711,14.282942 5.38252254,9.42002697 2,4.64829216 Z" id="Path"></path>
+				            <path d="M41,62.7297369 L43.403192,61 C44.9321699,63.1863842 46.4391334,65.310355 47.9324251,67.3823509 C49.3842683,69.3968255 52.1473858,72.2538171 56,75.7806107 L54.0260273,78 C50.0332125,74.3448628 47.1563084,71.3702189 45.5538327,69.1467374 C44.0520763,67.0629964 42.5369316,64.9274946 41,62.7297369 Z" id="Path"></path>
+				            <path d="M93,109.322877 L94.8395746,107 C100.413915,111.105347 105.781308,114.971769 111,118.63748 L109.215539,121 C103.977716,117.320851 98.5920305,113.441252 93,109.322877 Z" id="Path"></path>
+				            <path d="M151,149.470079 L152.555842,147 C158.417275,150.357357 164.219098,153.505135 170,156.4605 L168.572341,159 C162.747424,156.022134 156.902921,152.8512 151,149.470079 Z" id="Path"></path>
+				            <path d="M214,179.791321 L215.02522,177 C221.251828,179.225883 227.566927,181.274457 234,183.153195 L233.145795,186 C226.655209,184.104466 220.28308,182.037391 214,179.791321 Z" id="Path"></path>
+				            <path d="M282,197.291775 L282.392936,194 C289.313641,195.027856 295.847475,195.583318 302,195.6795 L301.958279,199 C295.685286,198.901935 289.034477,198.336528 282,197.291775 Z" id="Path"></path>
+				            <path d="M350.638186,187 L349,184.406989 C354.736798,180.742988 359.583066,176.250706 363.572029,171 L366,172.864717 C361.794112,178.400964 356.681163,183.140448 350.638186,187 Z" id="Path"></path>
+				            <path d="M381,125 L377.802385,124.998801 C377.805198,118.500571 377.17784,111.906066 376,105.501997 L379.151775,105 C380.359541,111.566783 381.002878,118.329247 381,125 Z" id="Path"></path>
+				            <path d="M353,62.4006279 L351.40664,65 C346.254586,61.6057616 340.394253,58.5292845 334,55.8563746 L335.110947,53 C341.668118,55.7410127 347.689736,58.9021591 353,62.4006279 Z" id="Path"></path>
+				            <path d="M286,43.2164071 L285.833189,45.8347148 C279.208287,45.5057553 272.637574,45.5578632 266.231521,46 L266,43.3855315 C272.540551,42.9341119 279.244232,42.8809495 286,43.2164071 Z" id="Path"></path>
+				            <path d="M217.470355,57 L219,59.5850313 C213.421181,63.1115349 208.446873,67.2523912 204.138309,72 L202,69.9269724 C206.491908,64.9773364 211.671494,60.6655966 217.470355,57 Z" id="Path"></path>
+				            <path d="M185.200829,117 L188,117.131669 C187.741648,123.354983 187.744266,130.002403 187.959858,136.900835 L185.159505,137 C184.941659,130.029432 184.939011,123.306819 185.200829,117 Z" id="Path"></path>
+				            <path d="M196,186.117588 L198.697631,185 C200.124622,188.528174 201.440086,191.594857 202.269981,193.343062 C203.61593,196.178351 205.20359,199.283947 207,202.572694 L204.448978,204 C202.626174,200.662933 201.013033,197.507494 199.642598,194.620625 C198.783279,192.810439 197.446963,189.695142 196,186.117588 Z" id="Path"></path>
+				            <path d="M233,245.84981 L235.311826,244 C239.333435,249.052269 243.563847,254.065858 248,259.018584 L245.799331,261 C241.324534,256.004132 237.057086,250.946649 233,245.84981 Z" id="Path"></path>
+				            <path d="M282,296.344447 L283.97052,294 C289.164706,298.311878 294.507791,302.49711 300,306.546733 L298.168514,309 C292.628601,304.915203 287.239175,300.693672 282,296.344447 Z" id="Path"></path>
+				            <path d="M341,333.676591 L342.247149,331 C348.168628,333.553054 354.411845,335.967263 361,338.238871 L359.971124,341 C353.309624,338.703102 346.993594,336.260737 341,333.676591 Z" id="Path"></path>
+				            <path d="M408,355.154685 L408.593848,352 C414.844614,353.384138 421.311242,354.658593 428,355.820775 L427.530406,359 C420.800433,357.830657 414.292387,356.54804 408,355.154685 Z" id="Path"></path>
+				            <path d="M478,363.819925 L478.225718,361 C484.659845,361.46479 491.250377,361.856991 498,362.175415 L497.852347,365 C491.076873,364.680357 484.460322,364.286607 478,363.819925 Z" id="Path"></path>
+				            <path d="M548.012684,366 L548,363.244718 C554.5233,363.219281 561.167388,363.137935 567.933703,363 L568,365.754631 C561.215926,365.892928 554.553969,365.974493 548.012684,366 Z" id="Path"></path>
+				        </g>
+				    </g>
+				</svg>
+				<form class="small">
+					<input type="text" name="fullname" id="fullname" placeholder="Full name"/>
+					<input type="address" name="email" id="emailaddress" placeholder="Email address"/>
+					<textarea name="message" id="message" placeholder="Tell us how we can help"></textarea>
+					<button type="submit">Send</button>
+				</form>
+				<svg id="plane" width="380px" height="271px" viewBox="0 0 380 271" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+				    <title>Artboard</title>
+				    <desc>Created with Sketch.</desc>
+				    <defs></defs>
+				    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				        <g id="Artboard">
+				            <polygon id="Path-7" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="translate(322.500000, 69.000000) rotate(332.000000) translate(-322.500000, -69.000000) " points="243 36.8672 402 36 328.038106 102 314.93495 50.9370771 275.219735 99.2913988 321.457596 77.1341763 275.219735 99.2913988 278.167335 57.1217862 402 36 278.167335 57.1217862"></polygon>
+				            <path d="M5.07537973,269 L4,266.215151 C10.3593312,263.865622 16.6424522,261.461866 22.8576847,259 L24,261.759231 C17.7624359,264.229943 11.457003,266.642235 5.07537973,269 Z" id="Path" fill="#FFFFFF"></path>
+				            <path d="M69.282811,242 L68,239.197848 C73.9250939,236.210322 79.8054576,233.145732 85.647805,230 L87,232.765988 C81.1346364,235.924114 75.2311425,239.000758 69.282811,242 Z" id="Path" fill="#FFFFFF"></path>
+				            <path d="M130.573343,208 L129,205.43342 C134.802683,202.044483 140.587727,198.567918 146.360745,195 L148,197.526973 C142.205221,201.10834 136.398205,204.598109 130.573343,208 Z" id="Path" fill="#FFFFFF"></path>
+				            <path d="M189.763949,169 L188,166.612188 C193.387956,162.834447 198.780833,158.964817 204.183,155 L206,157.349753 C200.580365,161.32739 195.169806,165.209708 189.763949,169 Z" id="Path" fill="#FFFFFF"></path>
+				        </g>
+				    </g>
+				</svg>
+			</div>
+		</section>
+
+		<section id="credits">
+			Designed in Perth by <span class="logo">Ember</span> &copy; 2018
+		</section>
+	</body>
+</html>
