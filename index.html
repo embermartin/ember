@@ -91,7 +91,7 @@
 			#hero>h1{
 				text-shadow: 0 2px 4px rgba(0,0,0,0.04);
 				margin-bottom: 0;
-				margin-top: -75vh;
+				margin-top: -95vh;
 			}
 
 			#hero>h2{
@@ -364,6 +364,49 @@
 				left: 60px;
 				width: 200px;
 			}
+
+			#hero #nav{
+				position: absolute;
+				top: 55;
+				right: 30;
+				list-style-type: none;
+				margin: 0;
+			}
+
+			#nav li{
+				display: inline-block;
+				padding: 0 25px;
+			}
+
+			#nav a{
+				text-decoration: none;
+				color: white;
+				font-size: 22px;
+				font-family: 'Raleway';
+			}
+
+			@media only screen and (max-width: 900px) {
+			    #nav a{
+			    	font-size: 30px;
+			    }
+
+			    #nav li{
+			    	padding: 0 15px;
+			    }
+			}
+
+			@media only screen and (max-width: 650px){
+				#hero #logo{
+					right: 40px;
+					left: unset;
+				}
+
+				#hero #nav{
+					top: 100px;
+				}
+			}
+
+
 		</style>
 		<script>
 			function init() {
@@ -506,6 +549,11 @@
 			        </g>
 			    </g>
 			</svg>
+			<ul id="nav">
+				<li><a href="#about">About</a></li>
+				<li><a href="#tech">Tech</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
 			<h1>This is Ember</h1>
 			<h2>We make memorable websites that sell.</h2>
 		</section>
