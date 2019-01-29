@@ -1,0 +1,89 @@
+QA
+Lot assigned to each QA
+
+Add QA
+	9 Fields
+	(create qa immediately makes lot offsite)
+View QA
+	QA fields
+	List of lots
+	Model function
+		Mark received
+			Enter weight
+			Enter location
+		Move
+			Enter weight
+			Enter Location
+		Mark offered
+			Enter weight
+			Enter buyer
+		Mark sold
+			Enter weight
+			Enter buyer
+		Mark Pressed
+			Enter weight presed
+			Enter resulting weight
+		Mark Shipped
+			Enter weight shipped
+Shed Map
+	Visual chart
+	List
+QA dash
+	Search
+	List
+	Summary
+Sales summary
+	List
+Add a shed
+	Capacity
+	Name
+Add a grower
+	Name
+
+
+
+	Status
+		0 - Offsite
+		1 - In Stock
+		2 - Offered to Client
+		3 - Sold to Client
+		4 - Pressed
+		5 - Shipped
+
+
+
+
+Database fields
+	QA
+		id
+		contracted_weight
+		grade/text
+		grower_id
+		ddm
+		adf
+		wsc
+		ndf
+		cp
+	Lot
+		weight
+		pressed_weight
+		location
+		status
+		sold_to
+		offered_to
+		note
+	growers
+		id
+		name
+	Location name
+		max capacity
+
+
+Todo
+	Table Sort
+	User login
+	Keyword search
+	Sales summary
+	Shed map
+
+		
