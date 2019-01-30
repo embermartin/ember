@@ -7,15 +7,15 @@
     	header('Location: login.php');
     }
 
-	// $servername = "ls-f7b18ae7f72c01fe4dd8b8ba4ca3e40b30901535.cmnbttmu6wjr.ap-southeast-2.rds.amazonaws.com";
-	// $username = "dbmasteruser";
-	// $password = "jackmein";
-	// $dbname = "agh";
-
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
+	$servername = "ls-f7b18ae7f72c01fe4dd8b8ba4ca3e40b30901535.cmnbttmu6wjr.ap-southeast-2.rds.amazonaws.com";
+	$username = "dbmasteruser";
+	$password = "jackmein";
 	$dbname = "agh";
+
+	// $servername = "localhost";
+	// $username = "root";
+	// $password = "";
+	// $dbname = "agh";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
