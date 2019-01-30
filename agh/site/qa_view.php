@@ -484,7 +484,7 @@
 					echo "<td>" . $row["location_name"] . "</td>";
 					echo "<td>" . $row["weight"] . "</td>";
 					echo "<td>" . $row["pressed_weight"] . "</td>";
-					echo "<td><a href=\"#\">View notes</a></td>";
+					echo "<td><a onclick=\"alert('" . htmlspecialchars(addslashes($row["note"])) . "');\" href=\"#\">View notes</a></td>";
 					echo "<td>" . printStatus($row["status"]) . "</td>";
 					echo "<td>" . $row["offered_client_name"] . "</td>";
 					echo "<td>" . $row["sold_client_name"] . "</td>";

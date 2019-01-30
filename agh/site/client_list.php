@@ -45,39 +45,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	<span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	<ul class="navbar-nav mr-auto">
-	  <li class="nav-item">
-		<a class="nav-link" href="index.php">QA List <span class="sr-only">(current)</span></a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link" href="shed_map.php">Shed Map</a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link" href="#">Sales</a>
-	  </li>
-	  <li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		  Admin
-		</a>
-		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		  <a class="dropdown-item" href="location_list.php">Manage Sheds/Locations</a>
-		  <a class="dropdown-item" href="client_list.php">Manage Clients</a>
-		  <a class="dropdown-item" href="grower_list.php">Manage Growers</a>
-		</div>
-	  </li>
-	</ul>
-	<form class="form-inline my-2 my-lg-0">
-	  <input class="form-control mr-sm-2" type="search" placeholder="Start typing..." aria-label="Search">
-	  <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-	</form>
-  </div>
-</nav>
+<?php include('nav.php'); ?>
 
 <div class="container">
   <?php
@@ -98,9 +66,9 @@
 		}
 	?>
 
-  <h1 class="my-4 text-center">Manage Growers</h1>
+  <h1 class="my-4 text-center">Manage Clients</h1>
 
-	<a href="grower_add.php" class="btn btn-success my-2 float-right">Add Grower</a>
+	<a href="client_add.php" class="btn btn-success my-2 float-right">Add Client</a>
   	<table class="table mt-4">
 	  <thead>
 	    <tr>
@@ -109,12 +77,12 @@
 	  </thead>
 	  <tbody>
 	  		<?php 
-				$sql = "SELECT * FROM grower";
+				$sql = "SELECT * FROM client";
 				$result = $conn->query($sql);
 				while($row = $result->fetch_assoc()) {
 					echo "<tr>";
 						echo "<td>" . $row["name"] . "</td>";
-						echo "<td><a href=\"grower_view.php?id=" . $row["id"] . "\">Edit</a></td>";
+						echo "<td><a href=\"client_view.php?id=" . $row["id"] . "\">Edit</a></td>";
 					echo "</tr>";
 				}
 			?>

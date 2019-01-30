@@ -74,83 +74,38 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	<span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	<ul class="navbar-nav mr-auto">
-	  <li class="nav-item active">
-		<a class="nav-link" href="index.php">QA List <span class="sr-only">(current)</span></a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link" href="shed_map.php">Shed Map</a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link" href="sales.php">Sales</a>
-	  </li>
-	  <li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		  Admin
-		</a>
-		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		  <a class="dropdown-item" href="location_list.php">Manage Sheds/Locations</a>
-		  <a class="dropdown-item" href="client_list.php">Manage Clients</a>
-		  <a class="dropdown-item" href="grower_list.php">Manage Growers</a>
-		</div>
-	  </li>
-	</ul>
-
-	<ul class="navbar-nav float-right">
-		<li class="nav-item">
-		<a class="nav-link" href="login.php?logout">Log out</a>
-	  </li>
-	</ul>
-  </div>
-</nav>
-
+<?php include('nav.php'); ?>
 <div class="container">
 
-  <h1 class="my-4 text-center">QA List</h1>
+  <h1 class="my-4 text-center">Sales</h1>
 
 	<a href="qa_add.php" class="btn btn-success my-2 float-right">Add QA</a>
   	<table class="table mt-4" id="qaList">
 	  <thead>
 	    <tr>
 	      <th scope="col">Grade</th>
-	      <th scope="col">Onsite (b)</th>
-	      <th scope="col">Offsite (b)</th>
-	      <th scope="col">Grower</th>
-	      <th scope="col">Location</th>
-	      <th scope="col">QA</th>
-	      <th scope="col">DDM</th>
-	      <th scope="col">ADF</th>
-	      <th scope="col">NDF</th>
-	      <th scope="col">WSC</th>
-	      <th scope="col">CP</th>
-	      <th scope="col">View</th>
+	      <th scope="col">Weight</th>
+	      <th scope="col">Status</th>
+	      <th scope="col">Offered to</th>
+	      <th scope="col">Sold to</th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	  		<?php 
-				$sql = "SELECT *, qa.id as qa_id FROM qa 
-				INNER JOIN grower ON qa.grower_id = grower.id";
+				$sql = "SELECT lot.status, lot.weight, qa.grade, c1.name AS offered_to, c2.name AS sold_to FROM lot 
+				LEFT JOIN qa ON qa.id = lot.parent_qa
+				LEFT JOIN client as c1 ON c1.id = lot.offered_to
+				LEFT JOIN client as c2 ON c2.id = lot.sold_to
+				WHERE status IN ('2','3')";
+
 				$result = $conn->query($sql);
 				while($row = $result->fetch_assoc()) {
 					echo "<tr>";
 						echo "<td>" . $row["grade"] . "</td>";
-						echo "<td>" . intval($row["qa"]) * 3 . "</td>";
-						echo "<td>" . intval($row["qa"]) * 2.2  . "</td>";
-						echo "<td>" . $row["name"] . "</td>";
-						echo "<td>" . "-" . "</td>";
-						echo "<td>" . $row["qa"] . "</td>";
-						echo "<td>" . $row["ddm"] . "</td>";
-						echo "<td>" . $row["adf"] . "</td>";
-						echo "<td>" . $row["ndf"] . "</td>";
-						echo "<td>" . $row["wsc"] . "</td>";
-						echo "<td>" . $row["cp"] . "</td>";
-						echo "<td><a href=\"qa_view.php?id=" . $row["qa_id"] . "\">View</a></td>";
+						echo "<td>" . $row["weight"] . "</td>";
+						echo "<td>" . printStatus($row["status"]) . "</td>";
+						echo "<td>" . $row["offered_to"] . "</td>";
+						echo "<td>" . $row["sold_to"] . "</td>";
 					echo "</tr>";
 				}
 			?>

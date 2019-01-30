@@ -1,0 +1,1 @@
+/Applications/XAMPP/xamppfiles/bin/mysql -u dbmasteruser -h ls-f7b18ae7f72c01fe4dd8b8ba4ca3e40b30901535.cmnbttmu6wjr.ap-southeast-2.rds.amazonaws.com -P 3306 -p

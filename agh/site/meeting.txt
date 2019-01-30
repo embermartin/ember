@@ -1,0 +1,45 @@
+When moving, select location and bay
+
+Shed A
+Bay 1 - 8
+
+Shed
+	Bay number
+	~1000 bays
+
+Shed
+	Bays
+	Shed Name
+	Shed Bay
+
+Table Shed
+	3
+
+QA List
+	Weight
+	Bales
+
+Bays
+Shed
+
+QA Tonnage
+Recieve bales
+	Have average
+
+Tonnage, Bales
+Recieving = Bales, Ton
+Moved in bales
+ Moving to Press = Bales, Estimate tons
+ Shipped = Weight
+
+
+Bale weigh different
+
+
+When moving from shed to press
+	Number of bales
+	Estimate tonnage
+
+Admin Show empty for everyone
+
+Shed Map drop down

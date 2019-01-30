@@ -7,9 +7,14 @@
     	header('Location: login.php');
     }
 
-	$servername = "ls-f7b18ae7f72c01fe4dd8b8ba4ca3e40b30901535.cmnbttmu6wjr.ap-southeast-2.rds.amazonaws.com";
-	$username = "dbmasteruser";
-	$password = "jackmein";
+	// $servername = "ls-f7b18ae7f72c01fe4dd8b8ba4ca3e40b30901535.cmnbttmu6wjr.ap-southeast-2.rds.amazonaws.com";
+	// $username = "dbmasteruser";
+	// $password = "jackmein";
+	// $dbname = "agh";
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
 	$dbname = "agh";
 
 	// Create connection
@@ -17,6 +22,24 @@
 	// Check connection
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
+	}
+
+	if(isset($_GET["action"])){
+		$action = $_GET["action"];
+		if($action == "remove_user"){
+			$user = $_GET["id"];
+			// sql to delete user
+			$sql = "DELETE FROM users WHERE id=" . $user;
+
+			if ($conn->query($sql) === TRUE) {
+			    echo "User deleted successfully";
+			    $date = new DateTime();
+				$timestamp = $date->getTimestamp();
+				header('Location: user_list.php?status=deleted&t=' . $timestamp);
+			} else {
+			    echo "Error deleting record: " . $conn->error;
+			}
+		}
 	}
 
 	if(isset($_POST["form"])){
@@ -39,13 +62,14 @@
 				$row = mysqli_fetch_assoc($result);
 				
 				if(isset($row["id"])){
-					$user = $row["id"];
-					$_SESSION['user'] = $user;
+					$admin = $row["admin"];
+					$_SESSION['admin'] = $admin;
 					$_SESSION['valid'] = true;
 					header('Location: index.php');
 					echo $user;
 				} else {
 					echo "user not found";
+					header('Location: login.php?wrong');
 				}
 				
 			} else {
@@ -444,6 +468,33 @@
 			} else {
 			    echo "Error: " . $sql . "<br>" . $conn->error;
 			}
+		} else if ($form == "user_add") {
+		    echo "adding a user!";
+
+		    $email = $_POST["email"];
+		    $admin = $_POST["admin"];
+
+		    $passwords = randomPassword(10,1,"lower_case,numbers");
+		    $password = $passwords[0];
+
+	    	$sql = "INSERT INTO users (email, password, admin) VALUES ('$email','$password', $admin);";
+
+			if ($conn->query($sql) === TRUE) {
+			    echo "User successfully added";
+			    //email user
+			    // the message
+				$msg = "Your AGH password is:\n" . $password;
+
+				// use wordwrap() if lines are longer than 70 characters
+				$msg = wordwrap($msg,70);
+
+				// send email
+				mail($email,"Log in to AGH",$msg);
+
+				header('Location: user_list.php?email=' . urlencode($email) . "&status=new");
+			} else {
+			    echo "Error: " . $sql . "<br>" . $conn->error;
+			}
 		}
 
 	}
@@ -463,6 +514,46 @@
 			return "Shipped";
 		}
 	}
+
+	function randomPassword($length,$count, $characters) {
+ 
+	// $length - the length of the generated password
+	// $count - number of passwords to be generated
+	// $characters - types of characters to be used in the password
+	 
+	// define variables used within the function    
+	    $symbols = array();
+	    $passwords = array();
+	    $used_symbols = '';
+	    $pass = '';
+	 
+	// an array of different character types    
+	    $symbols["lower_case"] = 'abcdefghijklmnopqrstuvwxyz';
+	    $symbols["upper_case"] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $symbols["numbers"] = '1234567890';
+	    $symbols["special_symbols"] = '!?~@#-_+<>[]{}';
+	 
+	    $characters = split(",",$characters); // get characters types to be used for the passsword
+	    foreach ($characters as $key=>$value) {
+	        $used_symbols .= $symbols[$value]; // build a string with all characters
+	    }
+	    $symbols_length = strlen($used_symbols) - 1; //strlen starts from 0 so to get number of characters deduct 1
+	     
+	    for ($p = 0; $p < $count; $p++) {
+	        $pass = '';
+	        for ($i = 0; $i < $length; $i++) {
+	            $n = rand(0, $symbols_length); // get a random character from the string with all characters
+	            $pass .= $used_symbols[$n]; // add the character to the password string
+	        }
+	        $passwords[] = $pass;
+	    }
+	     
+	    return $passwords; // return the generated password
+	}
+	 
+	//$my_passwords = randomPassword(10,1,"lower_case,upper_case,numbers,special_symbols");
+	 
+	//print_r($my_passwords);
 
 
 	//$conn->close();
