@@ -1,7 +1,9 @@
-<?php
+<?php error_reporting(E_ALL);
 
 	ob_start();
     session_start();
+
+
 
     if($_SESSION['valid'] != true){
     	header('Location: login.php');
