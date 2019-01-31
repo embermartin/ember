@@ -1,4 +1,13 @@
-<?php error_reporting(E_ALL);
+<?php 
+
+	error_reporting(E_ALL);
+
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
+
+	require 'PHPMailer/src/Exception.php';
+	require 'PHPMailer/src/PHPMailer.php';
+	require 'PHPMailer/src/SMTP.php';
 
 	ob_start();
     session_start();
@@ -9,15 +18,15 @@
     	header('Location: login.php');
     }
 
-	$servername = "ls-f7b18ae7f72c01fe4dd8b8ba4ca3e40b30901535.cmnbttmu6wjr.ap-southeast-2.rds.amazonaws.com";
-	$username = "dbmasteruser";
-	$password = "jackmein";
-	$dbname = "agh";
-
-	// $servername = "localhost";
-	// $username = "root";
-	// $password = "";
+	// $servername = "ls-f7b18ae7f72c01fe4dd8b8ba4ca3e40b30901535.cmnbttmu6wjr.ap-southeast-2.rds.amazonaws.com";
+	// $username = "dbmasteruser";
+	// $password = "jackmein";
 	// $dbname = "agh";
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "agh";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -484,21 +493,61 @@
 			if ($conn->query($sql) === TRUE) {
 			    echo "User successfully added";
 			    //email user
-			    // the message
-				$msg = "Your AGH password is:\n" . $password;
+				$mail = new PHPMailer;
+				$mail->isSMTP();
+				//Enable SMTP debugging
+				// 0 = off (for production use)
+				// 1 = client messages
+				// 2 = client and server messages
+				$mail->SMTPDebug = 2;
+				//Set the hostname of the mail server
+				$mail->Host = 'smtp.gmail.com';
+				// use
+				// $mail->Host = gethostbyname('smtp.gmail.com');
+				// if your network does not support SMTP over IPv6
+				//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+				$mail->Port = 587;
+				//Set the encryption system to use - ssl (deprecated) or tls
+				$mail->SMTPSecure = 'tls';
+				//Whether to use SMTP authentication
+				$mail->SMTPAuth = true;
+				//Username to use for SMTP authentication - use full email address for gmail
+				$mail->Username = "agh.sender";
+				//Password to use for SMTP authentication
+				$mail->Password = "vaztiq-cabxaq-2tahWu";
+				//Set who the message is to be sent from
+				$mail->setFrom('agh.sender@gmail.com', 'AGH Web');
+				//Set an alternative reply-to address
+				//$mail->addReplyTo('replyto@example.com', 'First Last');
+				//Set who the message is to be sent to
+				$mail->addAddress($email, 'New User');
+				//Set the subject line
+				$mail->Subject = 'Your AGH Login';
+				//Read an HTML message body from an external file, convert referenced images to embedded,
+				//convert HTML into a basic plain-text alternative body
+				$mail->msgHTML("Your AGH login has been created and your password is: " . $password);
+				//Replace the plain text body with one created manually
+				$mail->AltBody = "Your AGH login has been created and your password is: " . $password;
+				//Attach an image file
+				//$mail->addAttachment('images/phpmailer_mini.png');
+				//send the message, check for errors
+				if (!$mail->send()) {
+				    echo "Mailer Error: " . $mail->ErrorInfo;
+				} else {
+				    echo "Message sent!";
+				    //Section 2: IMAP
+				    //Uncomment these to save your message in the 'Sent Mail' folder.
+				    #if (save_mail($mail)) {
+				    #    echo "Message saved!";
+				    #}
+				}
 
-				// use wordwrap() if lines are longer than 70 characters
-				$msg = wordwrap($msg,70);
-
-				// send email
-				mail($email,"Log in to AGH",$msg);
 
 				header('Location: user_list.php?email=' . urlencode($email) . "&status=new");
 			} else {
 			    echo "Error: " . $sql . "<br>" . $conn->error;
 			}
 		}
-
 	}
 
 	function printStatus($status_id){
@@ -535,7 +584,7 @@
 	    $symbols["numbers"] = '1234567890';
 	    $symbols["special_symbols"] = '!?~@#-_+<>[]{}';
 	 
-	    $characters = split(",",$characters); // get characters types to be used for the passsword
+	    $characters = explode(",",$characters); // get characters types to be used for the passsword
 	    foreach ($characters as $key=>$value) {
 	        $used_symbols .= $symbols[$value]; // build a string with all characters
 	    }
